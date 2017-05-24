@@ -26,3 +26,9 @@ dependencies {
     compile 'com.google.guava:guava:16.0'
     testCompile 'junit:junit:4.12'
 }
+
+test {
+    testLogging {
+      events "passed", "skipped", "failed"
+    }
+}
