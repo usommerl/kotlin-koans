@@ -2,6 +2,7 @@ package v_builders
 
 import util.TODO
 import util.doc39
+import v_builders.data.Product
 import v_builders.data.getProducts
 import v_builders.htmlLibrary.*
 
@@ -33,8 +34,19 @@ fun renderProductTable(): String {
                     text("Popularity")
                 }
             }
-            val products = getProducts()
-            todoTask39()
+            getProducts().forEachIndexed { i, (description, price, popularity) ->
+                tr {
+                    td (color = getCellColor(i, 0)) {
+                        text (description)
+                    }
+                    td (color = getCellColor(i, 1)) {
+                        text (price)
+                    }
+                    td (color = getCellColor(i, 2)) {
+                        text (popularity)
+                    }
+                }
+            }
         }
     }.toString()
 }
